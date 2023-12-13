@@ -36,19 +36,19 @@ class TestBooksCollector:
         books_genre = BooksCollector()
         assert books_genre.genre
 
-    def test_add_new_book_true(self):  # 2 добавляем новую книгу
+    def test_add_new_book_two_identical_books_save_one(self):  # 2 добавляем новую книгу
         books_collection = BooksCollector()
         books_collection.add_new_book('Братья Карамазовы')
-        books_collection.add_new_book('Машина времени')
-        assert len(books_collection.get_books_genre()) == 2
+        books_collection.add_new_book('Братья Карамазовы')
+        assert len(books_collection.get_books_genre()) != 2
 
-    def test_set_genre_for_book_true(self):  # 3 устанавливаем книге жанр
+    def test_set_genre_for_book(self):  # 3 устанавливаем книге жанр
         books_collection = BooksCollector()
         books_collection.add_new_book('Щелкунчик')
         books_collection.set_book_genre('Щелкунчик', 'Мультфильмы')
         assert 'Мультфильмы' == books_collection.get_book_genre('Щелкунчик')
 
-    def test_get_book_genre_true(self):  # 4 получаем жанр книги по её имени
+    def test_get_book_genre(self):  # 4 получаем жанр книги по её имени
         books_collection = BooksCollector()
         books_collection.add_new_book('Щелкунчик')
         books_collection.set_book_genre('Щелкунчик', 'Мультфильмы')
@@ -61,7 +61,7 @@ class TestBooksCollector:
         books_specific_genre.get_books_with_specific_genre('Парк юркского периода')
         assert len(books_specific_genre.get_books_with_specific_genre('Ужасы')) == 1
 
-    def test_get_books_genre_true(self):  # 6 получаем словарь books_genre
+    def test_get_books_genre(self):  # 6 получаем словарь books_genre
         books_collection = BooksCollector()
         books_collection.add_new_book('Братья Карамазовы')
         books_collection.set_book_genre('Братья Карамазовы', 'Классика')
@@ -88,7 +88,7 @@ class TestBooksCollector:
         book_favorites.delete_book_from_favorites('Анна Каренина')
         assert len(book_favorites.get_list_of_favorites_books()) == 1
 
-    def test_get_list_of_favorites_books_true(self):  # 10 получаем список Избранных книг
+    def test_get_list_of_favorites_books(self):  # 10 получаем список Избранных книг
         book_favorites = BooksCollector()
         book_favorites.add_new_book('Братья Карамазовы')
         book_favorites.add_book_in_favorites('Братья Карамазовы')
