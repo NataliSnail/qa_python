@@ -32,7 +32,7 @@ class TestBooksCollector:
                                  'Комедии'
                              ]
                              )
-    def test_get_genres_true(self, genre):  # 1 проверить список доступных  жанров genre
+    def test_get_genres_true(self, genre):  # 1 проверить список доступных  жанров genre.
         books_genre = BooksCollector()
         assert books_genre.genre
 
