@@ -34,7 +34,7 @@ class TestBooksCollector:
                              )
     def test_get_genres_true(self, genre):  # 1 проверить список доступных  жанров genre.
         books_genre = BooksCollector()
-        assert books_genre.genre
+        assert genre in books_genre.genre
 
     def test_add_new_book_two_identical_books_save_one(self):  # 2 добавляем новую книгу
         books_collection = BooksCollector()
